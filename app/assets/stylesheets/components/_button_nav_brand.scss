@@ -1,0 +1,44 @@
+.ro-button-brand-icon-outer-container {
+
+  height: $ui-nav-icons-size;
+  z-index: 99;
+}
+
+.ro-button-brand-icon-container {
+
+  height: $ui-nav-icons-size;
+  padding: 0px;
+
+  overflow: hidden;
+
+  z-index: 200;
+  position: relative;
+}
+
+.ro-button-brand-icon {
+  width: 90%;
+  height: 90%;
+  fill: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 0px;
+  z-index: 99;
+  position: relative;
+  left: 5%;
+  top: 5%;
+  vertical-align: bottom;
+  z-index: 101;
+}
+
+
+@media(max-width: 480px) {
+  .ro-button-brand-icon-outer-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  }
+.ro-button-brand-icon-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  border-radius: 50%;
+  background: $ui-color-highlight;
+}
+}

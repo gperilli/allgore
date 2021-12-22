@@ -1,2 +1,78 @@
-<h1>hello</h1>
-<p>hi</p>
+<!-- Banner Carousel -->
+<div class="main-carousel">
+  <% carousel_movies = [] %>
+  <%# randomly_selected_movie = @movies.sample %>
+  <% while carousel_movies.count < 7 %>
+    <% randomly_selected_movie = @movies.sample %>
+    <% carousel_movies << randomly_selected_movie if carousel_movies.include?(randomly_selected_movie) == false %>
+  <% end %>
+  <!-- Carousel Item 1 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[0].title} %>
+  <!-- Carousel Item 2 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[1].title} %>
+  <!-- Carousel Item 3 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[2].title} %>
+  <!-- Carousel Item 4 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[3].title} %>
+  <!-- Carousel Item 5 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[4].title} %>
+  <!-- Carousel Item 6 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[5].title} %>
+</div>
+<!-- black spacer -->
+<%= render "shared/section_spacer", background_color: "background-color"  %>
+<!-- movie list title section -->
+<div class="ro-wrapper wireframe">
+  <div class="ro-container wireframe">
+    <h3 class="wireframe section-title white-text" style=""><%= @movies.count %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
+  </div>
+</div>
+<!-- Movies index -->
+<div class="ro-wrapper" style="overflow: visible;">
+  <div class="ro-container" style="overflow: visible;">
+    <div class="movies-container "style="">
+      <% @movies.each do |movie| %>
+        <div class="card" style="width: 100%; background: transparent;">
+          <%= link_to movie_path(movie.id) do %>
+            <div class="card wireframe">
+              <% if movie.poster_url == "https://image.tmdb.org/t/p/w500/" %>
+                <img src="<%= image_path('noposter.png') %>">
+              <% else %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="movie-card__poster-proportion wireframe" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" fill="transparent" style="" viewBox="0 0 500 750"></svg>
+                <img src="<%= movie.poster_url %>"class="movie-card__poster-image" style="">
+              <% end %>
+            </div>
+          <% end %>
+          <div class="wireframe" style="position: relative; width: 100%; text-overflow: ellipsis;">
+            <%= link_to movie_path(movie.id), style: 'position: relative; display: flex; text-decoration: none; float: left; width: fit-content;', class: '' do %>
+              <!-- "https://www.themoviedb.org/movie/#{movie.tmdb_key}" -->
+              <span class="movie-card__title wireframe", style="">
+                <%= movie.title  %>
+              </span>
+            <% end %>
+          </div>
+          <div class="movie-card__meta-data-container wireframe" style="">
+            <span class="movie-card__meta-data" style=" "><%= movie.release_date[0..3] %>&nbsp; &#8226; &nbsp;<%= movie.runtime %> min</span>
+          </div>
+          <div class="movie-card__meta-data-container wireframe" style="">
+            <% movie_lists_for_this_movie = [] %>
+            <% movie.movielistconnectors.all.each do |movielistconnector| %>
+              <% movie_lists_for_this_movie << List.find(movielistconnector.list_id).name if List.find(movielistconnector.list_id).name != "No Category" %>
+            <% end %>
+            <span class="movie-card__meta-data" style="float: right; display: <%= List.find(movie.movielistconnectors[0].list_id).name != "No Category" ? "block" : "none"  %>">
+              <%= link_to movie_lists_for_this_movie[0], list_path(movie.movielistconnectors[0].list_id), class: "movie-card__meta-data-link" %>
+              <span class="second_movie_category">
+                <%= movie_lists_for_this_movie[1] %>
+              </span>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="ro-wrapper wireframe ">
+  <div class="ro-container wireframe" style="align-items: center; justify-content: center; flex-direction: row; width: 100%; padding-top: 20px;">
+    <%#= paginate @movies, class: "" %>
+  </div>
+</div>
