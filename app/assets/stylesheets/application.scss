@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/allgore_variables";
 
 // External libraries
 //@import "bootstrap/scss/bootstrap";
@@ -11,3 +12,128 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Horror font
+@font-face {
+  font-family: 'horrorFont';
+  /* src: url(graphic_psychopathy-webfont.woff); */
+  src: asset-url('graphic_psycopathy.ttf');
+}
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "movies";
+
+
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+/*@import "pages/movies";*/
+.background-color {
+  background-color: #000;
+}
+
+.wrapper {
+  float: left;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.container {
+  max-width: 1580px;
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding: 0 8%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  background-color: transparent;
+
+}
+
+ h1 {
+  font-family: Helvetica, sans-serif;
+    float: left;
+    color: #fff;
+    width: 100%;
+    margin-left: 0px;
+    font-weight: 900;
+    font-size: 7rem;
+    letter-spacing: 0.04em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,2);
+    /* color: var(--uitxtclr-1); */
+  }
+
+  h2 {
+    font-family: Helvetica, sans-serif;
+  color: #fff;
+}
+
+h3.section-title {
+  font-family: Helvetica, sans-serif;
+  color: #fff;
+  font-weight:500;
+    font-size:2vw;
+}
+
+
+  .footer {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px;
+  color: #fff;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+
+@media(max-width: 1200px) {
+
+}
+
+@media(max-width: 1024px) {
+
+}
+
+
+@media(max-width: 768px) {
+    h3.section-title {
+  font-weight:500;
+    font-size: 4vw;
+}
+}
+
+
+@media(max-width: 480px) {
+  h3.section-title {
+  font-weight:500;
+    font-size:5vw;
+}
+}
