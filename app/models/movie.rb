@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :bookmarks
+  has_many :movielistconnectors
 
 
   validates :title, presence: true, uniqueness: true
