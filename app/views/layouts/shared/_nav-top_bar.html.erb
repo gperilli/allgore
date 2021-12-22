@@ -1,0 +1,13 @@
+<div class="ro-wrapper wireframe" >
+  <div class="fixed-top top-bar wireframe black_background">
+    <!-- background opacity shifting rectangle -->
+    <div id="test" class="navbar-background" style=""></div>
+    <div class="ro-container wireframe" style="">
+      <!-- brand home - hidden from top nav on small screens -->
+      <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;", locals: {:wide_screen_display_class => "wide-screen-items", :narrow_screen_display_class => "narrow-screen-items"} %>
+      <!-- Raibuon search bar -->
+      <%= render 'shared/searchbar', display_class: "" %>
+    </div>
+  </div>
+</div>
+<!-- -->

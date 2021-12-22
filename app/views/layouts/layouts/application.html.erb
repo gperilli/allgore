@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Gore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  </head>
+  <body class="background-color">
+    <%= render 'shared/nav-top_bar' %>
+    <%= yield %>
+    <!-- Footer -->
+    <div class="ro-wrapper wireframe">
+      <div class="ro-container wireframe" style="width: 100%;">
+        <div class="footer-copyright" style="float: right; padding-top: 50px; padding-bottom: 20px; width: 100%;">
+          <span style="color: #fff; float: right;">Made with <i class="fas fa-heart"></i> by <%= link_to "G. Perilli", "https://github.com/gperilli"%> </span>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script></script>
+  </body>
+</html>
