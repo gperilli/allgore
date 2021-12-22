@@ -15,3 +15,29 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// app/javascript/packs/application.js
+import 'bootstrap';
+
+
+document.addEventListener('turbolinks:load', () => {
+  var elem = document.querySelector('.main-carousel');
+  var flkty = new Flickity(elem, {
+    // options
+    fullscreen: true,
+    wrapAround: true,
+    prevNextButtons: false,
+    autoPlay: 10000,
+  });
+});
+
+// Opacity fade for top nav search bar background
+window.addEventListener('scroll', function () {
+  var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  if (currScrollPos2 > 25) {
+    document.getElementById('test').classList.add('navbar-fadein');
+  } else {
+    document.getElementById('test').classList.remove("navbar-fadein");
+  }
+}
+);
