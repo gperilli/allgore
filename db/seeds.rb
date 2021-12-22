@@ -22,7 +22,7 @@ puts 'cleaning up database'
 waiting_dots
 Movie.destroy_all
 List.destroy_all
-Bookmark.destroy_all
+Movielistconnector.destroy_all
 puts 'databse is clean'
 # List.destroy_all
 

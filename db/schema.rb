@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_22_010507) do
+ActiveRecord::Schema.define(version: 2021_12_22_014747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 2021_12_22_010507) do
     t.string "poster_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "backdrop_image_url"
+    t.integer "tmdb_key"
+    t.integer "runtime"
+    t.string "release_date"
   end
 
   add_foreign_key "movielistconnectors", "lists"
