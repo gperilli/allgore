@@ -1,8 +1,13 @@
 
 <!-- Banner Carousel -->
-<%= render partial: 'shared/banner_carousel', locals: {} %>
-<!-- black spacer -->
+<%= render partial: 'shared/banner_carousel' if params[:query].present? == false %>
+<% %>
+<!-- Black Spacer -->
 <%= render "shared/section_spacer", background_color: "background-color"  %>
+<% %>
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-color"  %>
+<% %>
 <!-- movie list title section -->
 <div class="ro-wrapper wireframe">
   <div class="ro-container wireframe">
