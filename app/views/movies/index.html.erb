@@ -1,24 +1,6 @@
+
 <!-- Banner Carousel -->
-<div class="main-carousel">
-  <% carousel_movies = [] %>
-  <%# randomly_selected_movie = @movies.sample %>
-  <% while carousel_movies.count < 7 %>
-    <% randomly_selected_movie = @movies.sample %>
-    <% carousel_movies << randomly_selected_movie if carousel_movies.include?(randomly_selected_movie) == false %>
-  <% end %>
-  <!-- Carousel Item 1 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[0].title} %>
-  <!-- Carousel Item 2 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[1].title} %>
-  <!-- Carousel Item 3 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[2].title} %>
-  <!-- Carousel Item 4 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[3].title} %>
-  <!-- Carousel Item 5 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[4].title} %>
-  <!-- Carousel Item 6 -->
-  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movies[5].title} %>
-</div>
+<%= render partial: 'shared/banner_carousel', locals: {} %>
 <!-- black spacer -->
 <%= render "shared/section_spacer", background_color: "background-color"  %>
 <!-- movie list title section -->
@@ -27,7 +9,7 @@
     <h3 class="wireframe section-title white-text" style=""><%= @movies.count %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
   </div>
 </div>
-<!-- Movies index -->
+<!-- Movies Index -->
 <div class="ro-wrapper" style="overflow: visible;">
   <div class="ro-container" style="overflow: visible;">
     <div class="movies-container "style="">
@@ -71,6 +53,7 @@
     </div>
   </div>
 </div>
+<!-- Pagintation -->
 <div class="ro-wrapper wireframe ">
   <div class="ro-container wireframe" style="align-items: center; justify-content: center; flex-direction: row; width: 100%; padding-top: 20px;">
     <%#= paginate @movies, class: "" %>

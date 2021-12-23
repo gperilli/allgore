@@ -1,0 +1,21 @@
+<div class="main-carousel">
+  <% carousel_movie_titles = [] %>
+  <% carousel_movie_titles[0] = "Dracula" %>
+  <% carousel_movie_titles[1] = "Alien" %>
+  <% carousel_movie_titles[2] = "Saw II" %>
+  <% carousel_movie_titles[3] = "A Nightmare on Elm Street" %>
+  <% carousel_movie_titles[4] = "Psycho" %>
+  <% carousel_movie_titles[5] = "The Ring" %>
+  <!-- Carousel Item 1 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[0]} %>
+  <!-- Carousel Item 2 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[1]} %>
+  <!-- Carousel Item 3 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[2]} %>
+  <!-- Carousel Item 4 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[3]} %>
+  <!-- Carousel Item 5 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[4]} %>
+  <!-- Carousel Item 6 -->
+  <%= render partial: 'shared/banner_carousel_item', locals: {:banner_movie => carousel_movie_titles[5]} %>
+</div>

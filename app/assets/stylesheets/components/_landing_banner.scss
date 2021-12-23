@@ -35,7 +35,7 @@
     );
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -144,8 +144,25 @@ h2.banner__movie-landing-title {
     margin-top: 2vh;
   }
 
+  h2.banner__movie-landing-title--long {
+    font-family: Helvetica, sans-serif;
+    font-weight:700;
+    font-size:5vw;
+    text-shadow: 10px 10px 25px rgb(0, 0, 0.5),
+    -10px 10px 25px rgba(150, 150, 150, 0.5),
+    -10px -10px 25px rgb(0,0,0.5),
+    10px -10px 25px rgb(150, 150, 100);
+    color: #fff;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    margin-left: 0px;
+    margin-top: 2vh;
+  }
+
 .banner__movie-link-button {
   float: left;
+ 
 }
 
 .vertical-center {
@@ -231,10 +248,14 @@ h2.banner__movie-landing-title {
 
 @media(max-width: 768px) {
     .banner__movie-landing-overview {
-    -webkit-line-clamp: 8;
+    -webkit-line-clamp: 3;
 }
   .landing-text {
     h2.banner__movie-landing-title {
+      font-weight:700;
+      font-size: 16vw;
+    }
+    h2.banner__movie-landing-title--long {
       font-weight:700;
       font-size: 16vw;
     }
@@ -247,7 +268,7 @@ h2.banner__movie-landing-title {
 
 @media(max-width: 600px) {
   .banner__movie-landing-overview {
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
 }
 }
 

@@ -1,23 +1,29 @@
 <% banner_movie_instance = @movies.find { |movie| movie.title == banner_movie } %>
-<div class="carousel-cell landing-wrapper-background" id="" style="background-image: linear-gradient(to bottom,
-    rgba(0, 0, 0, 0) 0vh,
-    rgba(0, 0, 0, 0) 60vh,
-    rgba(0, 0, 0, 1) 100vh
-    ), url('<%= banner_movie_instance[:backdrop_image_url] %>');">
+<% %>
+<div class="carousel-cell landing-wrapper-background" id="" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0vh, rgba(0, 0, 0, 0) 60vh, rgba(0, 0, 0, 1) 100vh), url('<%= banner_movie_instance[:backdrop_image_url] %>');">
   <div class="ro-wrapper" style="">
     <div class="ro-container wireframe" style="border: 0px solid yellow; height: 100vh; width: 100%; overflow: visible;">
       <div class="banner-carousel-content" style="">
         <div class="banner__movie-info-container wireframe">
-          <!-- flex child 1 - left/top -->
+          <!-- Flex Child 1 - left/top -->
           <div class="banner__movie-title-etc wireframe">
-            <h2 class="banner__movie-landing-title wireframe"><%= banner_movie_instance[:title]  %></h2>
+            <h2 class="<%= banner_movie_instance[:title] == "A Nightmare on Elm Street" ? "banner__movie-landing-title--long" : "banner__movie-landing-title" %> wireframe"><%= banner_movie_instance[:title]  %></h2>
             <div style="position: relative; float: left; width: 100%;">
               <span class="banner__movie-landing-year wireframe" style=""><%= banner_movie_instance.release_date[0..3] %></span>
             </div>
             <p class="banner__movie-landing-overview wireframe" style=""><%= banner_movie_instance.overview %></p>
             <div style="position: relative; width: 100%; float: left;">
               <%= link_to movie_path(banner_movie_instance.id) do %>
-                <span class="btn btn-danger mt-1 banner__movie-link-button" style=""><%= banner_movie_instance.title %> &nbsp; <i class="fas fa-chevron-right"></i></span>
+                <span class="btn btn-danger mt-1 banner__movie-link-button">
+                  <span style="display: -webkit-box; max-width: 100%; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
+                    <span style="">
+                      <%= banner_movie_instance.title %>
+                    </span>
+                    <span> 
+                      &nbsp; <i class="fas fa-chevron-right"></i>
+                    </span>
+                  </span>
+                </span>
               <% end %>
             </div>
           </div>
@@ -27,16 +33,8 @@
           </div>
         </div>
       </div>
-      <div style="display: none;">
-        <h2><%= @movies.count %> horror movies from <span style="color: red;" font-weight: bold;><%= link_to "TMDB", "https://www.themoviedb.org/" %></span>.</h2>
-        <ul>
-          <li><%#= link_to @lists[0].name + ">>",  "/lists/1" %></li>
-          <li><%#= link_to @lists[1].name + ">>",  "/lists/2" %></li>
-          <li><%#= link_to @lists[2].name + ">>",  "/lists/3" %></li>
-          <br>
-          <li><%= link_to "See Lists>>", lists_path %></li>
-        </ul>
-      </div>
+      
     </div>
   </div>
 </div>
+

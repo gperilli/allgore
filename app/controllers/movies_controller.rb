@@ -1,8 +1,12 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all #Movie.page params[:page]
-    @lists = List.all
+    if params[:query].present?
+      @movies = Movie.where(title: params[:query])
+    else
+      @movies = Movie.all #Movie.page params[:page]
+    end
+    # @lists = List.all
   end
 
   def show

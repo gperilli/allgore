@@ -110,7 +110,7 @@ end
 require 'csv'
 csv_file = "seed_list.csv"
 
-while horror_movies_n < 61 do
+while horror_movies_n < 19 do
   horror_movie_hash_tmdbindex_and_titlesarray = seed_unique_horror_movies(new_movie_index, movie_titles_array)
   horror_movie_hash = horror_movie_hash_tmdbindex_and_titlesarray[0]
   new_movie_index = horror_movie_hash_tmdbindex_and_titlesarray[1]
