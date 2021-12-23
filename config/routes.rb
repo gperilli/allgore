@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'movielistconnectors/controller'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'movies#index'
+  root to: 'pages#home'
   resources :lists, except: [:edit, :update] do
     resources :movielistconnectors, only: [:new, :create]
   end
