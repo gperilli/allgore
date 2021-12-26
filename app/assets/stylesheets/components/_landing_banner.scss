@@ -131,7 +131,7 @@
 h2.banner__movie-landing-title {
     font-family: Helvetica, sans-serif;
     font-weight:700;
-    font-size:7vw;
+    font-size:7vh;
     text-shadow: 10px 10px 25px rgb(0, 0, 0.5),
     -10px 10px 25px rgba(150, 150, 150, 0.5),
     -10px -10px 25px rgb(0,0,0.5),
@@ -147,7 +147,7 @@ h2.banner__movie-landing-title {
   h2.banner__movie-landing-title--long {
     font-family: Helvetica, sans-serif;
     font-weight:700;
-    font-size:5vw;
+    font-size:5vh;
     text-shadow: 10px 10px 25px rgb(0, 0, 0.5),
     -10px 10px 25px rgba(150, 150, 150, 0.5),
     -10px -10px 25px rgb(0,0,0.5),
@@ -253,11 +253,11 @@ h2.banner__movie-landing-title {
   .landing-text {
     h2.banner__movie-landing-title {
       font-weight:700;
-      font-size: 16vw;
+      font-size: 16vh;
     }
     h2.banner__movie-landing-title--long {
       font-weight:700;
-      font-size: 16vw;
+      font-size: 16vh;
     }
   }
   .landing-container  {
@@ -280,28 +280,28 @@ h2.banner__movie-landing-title {
   .landing-text {
     h2.banner__movie-landing-title {
       font-weight:700;
-      font-size: 16vw;
+      font-size: 16vh;
     }
 
     h2.ro-landing-sub-title {
       font-weight:500;
-      font-size: 10vw;
+      font-size: 10vh;
     }
 
   }
 
   .ro-button-h2text-sized-outer-outer-container {
-    margin-top: calc(9vw * 0.2);
+    margin-top: calc(9vh * 0.2);
   }
 
   .ro-button-h2text-sized-outer-container {
-    width: 9vw;
-    height: 9vw;
+    width: 9vh;
+    height: 9vh;
   }
 
   .ro-button-go-icon-container {
-    width: 9vw;
-    height: 9vw;
+    width: 9vh;
+    height: 9vh;
     padding: 0px;
     border-radius: 50%;
     overflow: hidden;
@@ -311,8 +311,8 @@ h2.banner__movie-landing-title {
   }
 
   .ro-button-standard-go-icon {
-    width: 9vw;
-    height: 9vw;
+    width: 9vh;
+    height: 9vh;
     font-size: calc(9vw * 0.8);
     padding: calc(9vw * 0.1);
   }
