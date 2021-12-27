@@ -16,10 +16,11 @@
 .searchbar-main {
   display: flex;
   flex-direction: row;
-  justify-content: start;
   flex-grow: 1;
   width: 100%;
   padding-left: 0px;
+  z-index: 99; 
+  position: relative;
 }
 
 .ro-search-bar-container {

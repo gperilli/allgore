@@ -86,8 +86,6 @@ body {
 .top-container-after-nav-bar {
   position: relative;
   float: left;
-  opacity: 0.3;
-  background-color: pink;
   top: $ui-nav-icons-yoffset;
   width: 100%;
   
@@ -96,10 +94,12 @@ body {
 .vertical-center {
   margin: 0;
   position: absolute;
-  top: 50%;
+  top: 40%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+
 
 h1 {
   font-family: $ag-main-font;
@@ -115,6 +115,8 @@ h1 {
   text-shadow: 1px 1px 3px rgba(0,0,0,2);
   /* color: var(--uitxtclr-1); */
 }
+
+
 
 h2 {
   font-family: $ag-main-font;

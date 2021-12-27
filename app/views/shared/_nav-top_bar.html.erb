@@ -5,8 +5,11 @@
     <div class="ag-container wireframe" style="">
       <!-- brand home - hidden from top nav on small screens -->
       <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;", locals: {:wide_screen_display_class => "wide-screen-items", :narrow_screen_display_class => "narrow-screen-items"} %>
-      <!-- Raibuon search bar -->
-      <%= render 'shared/searchbar', display_class: "" %>
+      <!-- Allgore search bar -->
+      <% if params[:controller] != "pages" && params[:action] != "home" %>
+      <%= render 'shared/searchbar', justify: "start" %>
+      <% else %>
+      <% end %>
     </div>
   </div>
 </div>

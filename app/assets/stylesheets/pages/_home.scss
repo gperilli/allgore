@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.home-landing-container {
+    position: relative;
+    top: 15vh;
+    width: 100%;
+    float: left;
+    display: block;
+}
+
+h1.home-landing__logo {
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 17vh;
+    float: left;
+  }
+
+
+.home-landing__search-contaner {
+    position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+  

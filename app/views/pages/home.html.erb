@@ -1,8 +1,22 @@
 <div class="ag-wrapper wireframe background-color" style="position: relative;">
     <div class="ag-container window-height-height-minus-footer-height wireframe" style="display: flex; position: relative; float: left; width: 100%;">
-        <div class="top-container-after-nav-bar window-height-minus-nav-and-footer-height wireframe" style="outline: 5px solid red;">
-        
-            <%= render "shared/all-gore-full-text" %>
+        <div class="top-container-after-nav-bar window-height-minus-nav-and-footer-height wireframe" style="">
+            
+
+            
+            
+                <div class="home-landing-container" style="outline: 1px solid yellow;">
+                    <!-- Allgore Landing Title -->
+                    <h1 class="home-landing__logo" >
+                        <%= render "shared/all-gore-full-text" %>
+                    </h1>
+                    <!-- Allgore search bar -->
+                    <div class="home-landing__search-contaner" style="">
+                        <%= render 'shared/searchbar', justify: "center" %>
+                    </div>
+                </div>
+
+
 
         </div>
     </div>
