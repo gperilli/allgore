@@ -23,7 +23,7 @@
   position: relative;
 }
 
-.ro-search-bar-container {
+.ag-search-bar-container {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -40,7 +40,7 @@
 
 }
 
-.ro-search-bar__bar {
+.ag-search-bar__bar {
   max-width: 512px;
   width: 100%;
   border-radius: 25px;
@@ -53,12 +53,12 @@
 
 }
 
-.ro-search-bar__bar:focus {
+.ag-search-bar__bar:focus {
   outline: none;
   color: #fff;
 }
 
-.ro-search-bar__button {
+.ag-search-bar__button {
   border-radius: 50%;
   height: 50px;
   width: 52px;
@@ -84,7 +84,7 @@
     width: 100%;
   }
 
-  .ro-search-bar-container {
+  .ag-search-bar-container {
     margin-left: 10px;
     float: left;
     width: 312px;
@@ -92,7 +92,7 @@
 }
 
 @media(max-width: 550px) {
-  .ro-search-bar-container {
+  .ag-search-bar-container {
     margin: auto;
     width: 90%;
     float: left;
@@ -112,7 +112,7 @@
 
 
 
-  .ro-search-bar-container {
+  .ag-search-bar-container {
     margin: auto;
     width: 100%;
     float: none

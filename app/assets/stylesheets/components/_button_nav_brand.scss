@@ -1,21 +1,17 @@
-.ro-button-brand-icon-outer-container {
-
+.ag-button-brand-icon-outer-container {
   height: $ui-nav-icons-size;
   z-index: 99;
 }
 
-.ro-button-brand-icon-container {
-
+.ag-button-brand-icon-container {
   height: $ui-nav-icons-size;
   padding: 0px;
-
   overflow: hidden;
-
   z-index: 200;
   position: relative;
 }
 
-.ro-button-brand-icon {
+.ag-button-brand-icon {
   width: 90%;
   height: 90%;
   fill: #fff;
@@ -29,16 +25,15 @@
   z-index: 101;
 }
 
-
 @media(max-width: 480px) {
-  .ro-button-brand-icon-outer-container {
-  width: $ui-nav-icons-size;
-  height: $ui-nav-icons-size;
+  .ag-button-brand-icon-outer-container {
+    width: $ui-nav-icons-size;
+    height: $ui-nav-icons-size;
   }
-.ro-button-brand-icon-container {
-  width: $ui-nav-icons-size;
-  height: $ui-nav-icons-size;
-  border-radius: 50%;
-  background: $ui-color-highlight;
-}
+  .ag-button-brand-icon-container {
+    width: $ui-nav-icons-size;
+    height: $ui-nav-icons-size;
+    border-radius: 50%;
+    background: transparent;
+  }
 }

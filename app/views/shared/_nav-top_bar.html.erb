@@ -4,7 +4,7 @@
     <div id="test" class="navbar-background" style=""></div>
     <div class="ag-container wireframe" style="">
       <!-- brand home - hidden from top nav on small screens -->
-      <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;", locals: {:wide_screen_display_class => "wide-screen-items", :narrow_screen_display_class => "narrow-screen-items"} %>
+      <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;" %>
       <!-- Allgore search bar -->
       <% if params[:controller] != "pages" && params[:action] != "home" %>
       <%= render 'shared/searchbar', justify: "start" %>

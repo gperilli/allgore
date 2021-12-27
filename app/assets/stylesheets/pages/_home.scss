@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .home-landing-container {
     position: relative;
-    top: 15vh;
+    top: 12vh;
     width: 100%;
     float: left;
     display: block;
@@ -17,9 +17,28 @@ h1.home-landing__logo {
 
 
 .home-landing__search-contaner {
-    position: relative;
+  position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
+  
+}
+
+.home_landing__ctas {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
   
+
+@media(max-height: 400px) and (max-width: 700px) {
+  h1.home-landing__logo {
+    display: none;
+
+  }
+}
