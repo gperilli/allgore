@@ -1,9 +1,9 @@
 <% banner_movie_instance = @movies.find { |movie| movie.title == banner_movie } %>
 <% %>
 <div class="carousel-cell landing-wrapper-background" id="" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0vh, rgba(0, 0, 0, 0) 60vh, rgba(0, 0, 0, 1) 100vh), url('<%= banner_movie_instance[:backdrop_image_url] %>');">
-  <div class="ro-wrapper" style="">
-    <div class="ro-container wireframe" style="border: 0px solid yellow; height: 100vh; width: 100%; overflow: visible;">
-      <div class="banner-carousel-content" style="">
+  <div class="ag-wrapper" style="">
+    <div class="ag-container wireframe" style="border: 0px solid yellow; height: 100vh; width: 100%; overflow: visible;">
+      <div class="page-top-full-height-container" style="">
         <div class="banner__movie-info-container wireframe">
           <!-- Flex Child 1 - left/top -->
           <div class="banner__movie-title-etc wireframe">
@@ -27,7 +27,7 @@
               <% end %>
             </div>
           </div>
-          <!-- flex child 2 - right/bottom -->
+          <!-- Flex Child 2 - right/bottom -->
           <div class="banner__movie-poster wireframe">
             <img class="banner__movie-poster-image" src="<%= banner_movie_instance[:poster_url] %>" style="">
           </div>
