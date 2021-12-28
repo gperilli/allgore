@@ -24,18 +24,12 @@ Movie.destroy_all
 List.destroy_all
 Movielistconnector.destroy_all
 puts 'databse is clean'
-# List.destroy_all
+
 
 puts 'Creating horror movies'
 waiting_dots
-# the Le Wagon copy of the API
-# url = 'http://tmdb.lewagon.com/movie/top_rated'
-# response = JSON.parse(URI.open(url).read)
-# https://api.themoviedb.org/3/movie/550?api_key=a7cc25d497366000cfcd64f2c419f406
-# response['results'].each do |movie_hash|
 
 # tmdb has about 704,457 movies
-
 new_movie_index = 0
 horror_movies_n = 1
 movie_titles_array = []
@@ -50,27 +44,23 @@ end
 
 def get_horror_movie_hash(new_movie_index)
   begin
-    # new_movie_index += 1
     movie_hash_and_src = get_movie_hash(new_movie_index)
     movie_hash = movie_hash_and_src[0]
     src = movie_hash_and_src[1]
     if movie_hash["genres"].empty?
+      # Handling empty hash
       puts "empty genre hash: #{src}"
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)
     elsif movie_hash["genres"][0]["name"] != "Horror"
-      #puts "not horror"
+      # Not a  horror movie
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)
-    #elsif movie_hash["poster_path"].nil?
-    #  puts "absent poster image: #{src}"
-    #  new_movie_index += 1
-    #  get_horror_movie_hash(new_movie_index)
     else
       horror_movie_hash_and_index = [movie_hash, new_movie_index]
     end
   rescue OpenURI::HTTPError => ex
-    #puts "Handling missing hash here"
+    # Handling missing hash
     new_movie_index += 1
     get_horror_movie_hash(new_movie_index)
   end
@@ -85,6 +75,7 @@ def seed_unique_horror_movies(new_movie_index, movie_titles_array)
      movie_titles_array << horror_movie_hash["original_title"]
 
     overview = horror_movie_hash["overview"] == "" ? "overview" : horror_movie_hash["overview"]
+    tagline = horror_movie_hash["tagline"] == "" ? "tagline" : horror_movie_hash["tagline"]
     backdrop_path = horror_movie_hash["backdrop_path"] == "" ? "backdrop" : horror_movie_hash["backdrop_path"]
     poster_path = horror_movie_hash["poster_path"] == "" ? "poster" : horror_movie_hash["poster_path"]
     backdrop_image_url = "https://image.tmdb.org/t/p/original/#{horror_movie_hash["backdrop_path"]}"
@@ -95,6 +86,7 @@ def seed_unique_horror_movies(new_movie_index, movie_titles_array)
       title: horror_movie_hash["original_title"],
       rating: horror_movie_hash["vote_average"],
       overview: overview,
+      tagline: tagline,
       tmdb_key: horror_movie_hash["id"],
       runtime: horror_movie_hash["runtime"],
       release_date: horror_movie_hash["release_date"],
@@ -140,14 +132,6 @@ no_category_list = List.create!(
     name: "No Category",
     overview: "uncategorizable!"
   )
-puts ""
-puts "Creating a 'scary' list"
-waiting_dots
-scary_list = List.create!(
-    name: "Scary",
-    overview: "Frightening!"
-  )
-
 
 puts ""
 puts "Creating movielistconnectors to hookup all movies to no category list"
@@ -156,45 +140,31 @@ Movie.all.each do |movie|
     movie_id: movie.id,
     list_id: no_category_list.id,
   )
-  scary_movielistconnector = Movielistconnector.create!(
-    movie_id: movie.id,
-    list_id: scary_list.id,
-  )
-
-  movie.movielistconnectors.all.each do |movielistconnector|
-    if List.find(movielistconnector.list_id).name == "Scary"
-      movielistconnector.destroy
-    end
-  end
 
 end
 
-# List.find(Movie.find(1).movielistconnectors.find { |movielistconnector| movielistconnector.movie_id == Movie.find(1).id }.list_id).name
-
-
-
 subgenres = [
-  ["Vampires", "Whu ha ha ha!", ["Dracula", "Dracula vs. Frankenstein", "From Dusk Till Dawn", "Vampyr - Der Traum des Allan Grey"]],
+  ["Vampires", "Whu ha ha ha", ["Dracula", "Dracula vs. Frankenstein", "From Dusk Till Dawn", "Vampyr - Der Traum des Allan Grey"]],
   ["Zombies", "I'm so hungry", ["Shaun of the Dead", "28 Days Later", "28 Weeks Later", "Resident Evil", "Resident Evil: Apocalypse", "Dawn of the Dead", "Planet Terror", ]],
-  ["Aliens", "Take me to your leader!", ["The Thing", "Frankenstein Meets the Space Monster", "Alien"]],
+  ["Aliens", "Take me to your leader", ["The Thing", "Frankenstein Meets the Space Monster", "Alien"]],
   ["Frankenstein Monsters", "Father, grrrr!", ["Victor Frankenstein", "Frankenstein Meets the Space Monster", "Dracula contra Frankenstein", "Frankenstein Island", "Frankenstein 1970", "La maldición de Frankenstein", "フランケンシュタイン対地底怪獣 バラゴン", "The Horror of Frankenstein", "The Evil of Frankenstein", "La figlia di Frankenstein", "Frankenstein and the Monster from Hell", "Frankenstein Created Woman", "House of Frankenstein", "The Curse of Frankenstein", "Son of Frankenstein", "Frankenstein Meets the Wolf Man", "Frankenstein Must Be Destroyed", "The Ghost of Frankenstein", "Frankenstein Unbound", "Frankenstein Reborn", "恐怖伝説　怪奇！フランケンシュタイン", "The Revenge of Frankenstein", "Flesh for Frankenstein", "Frankenstein"]],
   ["Ghosts", "Boo!", ["リング", "The Blair Witch Project", "The Dark", "The Grudge 2", "The Grudge", "The Others", "The Shining", "Poltergeist"]],
-  ["Technology", "Beep beep!", ["Videodrome"]],
+  ["Technology", "Beep beep", ["Videodrome"]],
   ["Werewolves", "Woof, woof", ["An American Werewolf in London"]],
-  ["Evil Men", "Please come in!", ["Saw", "Saw II", "Saw III", "Saw IV", "Psycho"]],
+  ["Evil Men", "Please come in", ["Saw", "Saw II", "Saw III", "Saw IV", "Psycho"]],
+  ["Slasher", "Swish", ["A Nightmare on Elm Street", "Psycho"]],
   ["Animals", "Fresh meat", ["Jaws", "Jaws 2", "The Birds"]],
   ["Comedy", "Ha, ha, ha", ["Shaun of the Dead"]]
 ]
 
 
 subgenres.each do |subgenre|
-  puts "Creating Movie subgenre List: #{subgenre[0]}: #{subgenre[1]} ."
+  puts "Creating Movie subgenre List: #{subgenre[0]}: #{subgenre[1]}! #{subgenre[2].count} movies in list."
   waiting_dots
   list = List.create!(
     name: subgenre[0],
     overview: subgenre[1]
   )
-
 
   subgenre[2].each do |film_name|
 
@@ -214,13 +184,14 @@ subgenres.each do |subgenre|
   end
 end
 
-puts ""
-puts "Displaying hooked up lists for each movie"
-waiting_dots
-Movie.all.each do |movie|
-  movie_lists_for_this_movie = []
-  movie.movielistconnectors.all.each do |movielistconnector|
-    movie_lists_for_this_movie << List.find(movielistconnector.list_id).name
-  end
-  puts "#{movie.title}: #{movie_lists_for_this_movie.join(', ')}"
-end
+# \list all movies with associated lists
+# puts ""
+# puts "Displaying hooked up lists for each movie"
+# waiting_dots
+# Movie.all.each do |movie|
+#   movie_lists_for_this_movie = []
+#   movie.movielistconnectors.all.each do |movielistconnector|
+#     movie_lists_for_this_movie << List.find(movielistconnector.list_id).name
+#   end
+#   puts "#{movie.title}: #{movie_lists_for_this_movie.join(', ')}"
+# end
