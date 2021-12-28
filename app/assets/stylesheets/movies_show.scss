@@ -35,7 +35,7 @@
 
 .movie-show__movie-poster-image-container {
     width: auto;
-    top: $movie-info-top-margin;
+    top: 2vh;
 }
 
 .movie-show__movie-poster-image {
@@ -45,7 +45,7 @@
     float: left;
     display: block;
     height: 70vh;
-    top: $movie-info-top-margin;
+    top: 2vh;
     box-shadow: -1px 1px 12px 3px rgba(255,255,255,.6);
 }
 

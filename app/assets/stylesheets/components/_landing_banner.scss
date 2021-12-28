@@ -57,7 +57,8 @@
 }
 
 .banner__movie-poster {
-  width: 50%;
+  position: relative;
+  top: calc(100% - 54vh);
 }
 
 .banner__movie-title-etc {
@@ -69,7 +70,7 @@
   /* bottom: 0;　*/
   position: relative;
   height: 40vh;
-  top: calc(100% - 42vh);
+  
   float: right;
   box-shadow: -1px 1px 12px 3px rgba(255,255,255,.6);
 }
@@ -255,17 +256,15 @@ h2.banner__movie-landing-title--long {
     padding-bottom: 0px;
   }
 
-  .banner__movie-info-container {
+
+  .banner__movie-poster {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    left: 0%;
-    height: 100%;
+    
   }
+
   .banner__movie-poster {
     width: 100%;
+    top: calc(100% - 54vh);
   }
 
   .banner__movie-title-etc {
