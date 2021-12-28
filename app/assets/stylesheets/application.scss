@@ -25,7 +25,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
+
 @import "movies_index";
 @import "movies_show";
 
@@ -35,12 +35,15 @@ body {
 }
 
 .wireframe {
-  outline: 0px solid #808080;
+  outline: 1px solid #808080;
 }
 
 /*@import "pages/movies";*/
 .background-color {
   background-color: $background-color;
+}
+.background-transparent {
+  background-color: transparent;
 }
 
 .background-transparent {
@@ -61,7 +64,7 @@ body {
   max-width: 1100px;
   margin-left: calc((100vw - 1100px) / 2);
   margin-right: calc((100vw - 1100px) / 2);
-  overflow: hidden;
+  
 }
 
 .wide-screen-items {
@@ -76,7 +79,7 @@ body {
   height: 100vh;
 }
 
-.window-height-height-minus-nav-height {
+.window-height-minus-nav-height {
   height: calc(100vh - #{$ui-nav-icons-yoffset});
 }
 
