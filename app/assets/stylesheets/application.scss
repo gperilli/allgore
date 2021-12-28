@@ -25,7 +25,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// CSS partials
+
 @import "movies_index";
 @import "movies_show";
 
@@ -42,6 +42,10 @@ body {
 .background-color {
   background-color: $background-color;
 }
+.background-transparent {
+  background-color: transparent;
+}
+
 .background-transparent {
   background-color: transparent;
 }
