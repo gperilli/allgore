@@ -143,6 +143,7 @@ Movie.all.each do |movie|
 
 end
 
+
 subgenres = [
   ["Vampires", "Whu ha ha ha", ["Dracula", "Dracula vs. Frankenstein", "From Dusk Till Dawn", "Vampyr - Der Traum des Allan Grey"]],
   ["Zombies", "I'm so hungry", ["Shaun of the Dead", "28 Days Later", "28 Weeks Later", "Resident Evil", "Resident Evil: Apocalypse", "Dawn of the Dead", "Planet Terror", ]],
@@ -156,6 +157,7 @@ subgenres = [
   ["Animals", "Fresh meat", ["Jaws", "Jaws 2", "The Birds"]],
   ["Comedy", "Ha, ha, ha", ["Shaun of the Dead"]]
 ]
+
 
 
 subgenres.each do |subgenre|

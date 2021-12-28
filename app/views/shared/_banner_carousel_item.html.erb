@@ -7,11 +7,11 @@
         <div class="banner__movie-info-container wireframe">
           <!-- Flex Child 1 - left/top -->
           <div class="banner__movie-title-etc wireframe">
-            <h2 class="<%= banner_movie_instance[:title] == "A Nightmare on Elm Street" ? "banner__movie-landing-title--long" : "banner__movie-landing-title" %> wireframe"><%= banner_movie_instance[:title]  %></h2>
+            <h2 class="<%= banner_movie_instance[:title].length > 18 ? "banner__movie-landing-title--long" : "banner__movie-landing-title" %> wireframe"><%= banner_movie_instance[:title]  %></h2>
             <div style="position: relative; float: left; width: 100%;">
               <span class="banner__movie-landing-year wireframe" style=""><%= banner_movie_instance.release_date[0..3] %></span>
             </div>
-            <p class="banner__movie-landing-overview wireframe" style=""><%= banner_movie_instance.overview %></p>
+            <p class="banner__movie-landing-overview wireframe" style=""><%= banner_movie_instance.tagline %></p>
             <div style="position: relative; width: 100%; float: left;">
               <%= link_to movie_path(banner_movie_instance.id) do %>
                 <span class="btn btn-danger mt-1 banner__movie-link-button">
