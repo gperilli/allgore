@@ -1,0 +1,48 @@
+<div class="movie-show__landing-wrapper-background" id="" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0vh, rgba(0, 0, 0, 0.4) 60vh, rgba(0, 0, 0, 1) 100vh), url('<%= @movie[:backdrop_image_url] %>');">
+</div>
+<div class="ag-wrapper" style="">
+  <div class="ag-container wireframe" style="width: 100%; overflow: visible;">
+    <div class="top-container-after-nav-bar movie-show__movie-info-container wireframe" style="">   
+        <!-- Flex Child 1 - left/top -->
+        <div class="movie-show__movie-poster-image-container" style="position: relative; float: left; display: block;">            
+          <img class="movie-show__movie-poster-image" src="<%= @movie[:poster_url] %>" style="top: 0px;"> 
+        </div>
+        <!-- Flex Child 2 - right/bottom -->
+        <div class="movie-show__movie-title-etc wireframe" style="display: flex; flex-direction: column; background:">
+          <h2 class="<%= @movie[:title].length > 18 ? "banner__movie-landing-title--long" : "banner__movie-landing-title" %> wireframe"><%= @movie[:title]  %></h2>
+          <div style="position: relative; float: left; width: 100%;">  
+            <span class="movie-show__movie-landing-year wireframe" style=" "><%= @movie.release_date[0..3] %>&nbsp; &#8226; &nbsp;<%= @movie.runtime %> min</span>
+          </div>
+          <p class="movie-show__movie-landing-tagline wireframe"><%= @movie.tagline %></p>
+          <p class="movie-show__movie-landing-overview wireframe"><%= @movie.overview %></p>
+          
+          <div class="wireframe" style="position: relative; float: left; width: 100%; display: block;"> 
+            <% movie_lists_for_this_movie = [] %>
+            <% @movie.movielistconnectors.all.each do |movielistconnector| %>
+              <% movie_lists_for_this_movie << List.find(movielistconnector.list_id).name if List.find(movielistconnector.list_id).name != "No Category" %>
+            <% end %>
+            <% movie_lists_for_this_movie.each_with_index do |movielist, index| %>
+              <span class="movie-show__movie-lists wireframe" style="display: <%= List.find(@movie.movielistconnectors[index].list_id).name != "No Category" ? "block" : "none"  %>">
+                <%= link_to movielist, list_path(@movie.movielistconnectors[index].list_id), class: "movie-show__list-link" %>
+              </span>
+            <% end %>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-transparent"  %>
+<% %>
+
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-transparent"  %>
+<% %>
+
+
+
+
+
