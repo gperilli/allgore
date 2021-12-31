@@ -8,17 +8,27 @@ def get_movie_hash(new_movie_index)
   movie_hash_and_src = [JSON.parse(URI.open(url).read), url]
 end
 
+def horror_movie_query?(genres)
+  # Detecting all horror movies among multiple genres
+  horror_movie = false
+  genres.each do |genre|
+    horror_movie = true if genre["name"] == "Horror"
+  end
+  return horror_movie
+end
+
 def get_horror_movie_hash(new_movie_index)
   begin
     movie_hash_and_src = get_movie_hash(new_movie_index)
     movie_hash = movie_hash_and_src[0]
     src = movie_hash_and_src[1]
+    horror_movie = horror_movie_query?(movie_hash["genres"])
     if movie_hash["genres"].empty?
       # Handling empty hash
       puts "empty genre hash: #{src}"
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)
-    elsif movie_hash["genres"][0]["name"] != "Horror" && movie_hash["genres"][1]["name"] != "Horror" && movie_hash["genres"][2]["name"] != "Horror" 
+    elsif horror_movie != true 
       # Not a  horror movie
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)
