@@ -18,7 +18,7 @@ def get_horror_movie_hash(new_movie_index)
       puts "empty genre hash: #{src}"
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)
-    elsif movie_hash["genres"][0]["name"] != "Horror"
+    elsif movie_hash["genres"][0]["name"] != "Horror" && movie_hash["genres"][1]["name"] != "Horror" && movie_hash["genres"][2]["name"] != "Horror" 
       # Not a  horror movie
       new_movie_index += 1
       get_horror_movie_hash(new_movie_index)

@@ -9,16 +9,16 @@ class MoviesController < ApplicationController
   @carousel_movie_titles[4] = "Psycho" 
   @carousel_movie_titles[5] = "The Ring" 
 
-      if params[:query].present?
-        sql_query = " \
-          movies.title ILIKE :query \
-          OR movies.release_date ILIKE :query \
-          OR lists.name ILIKE :query \
-        "
-        @movies = Movie.joins(:lists).where(sql_query, query: "%#{params[:query]}%")
-      else
-        @movies = Movie.all #Movie.page params[:page]
-      end
+  if params[:query].present?
+    sql_query = " \
+      movies.title ILIKE :query \
+      OR movies.release_date ILIKE :query \
+      OR lists.name ILIKE :query \
+    "
+    @movies = Movie.joins(:lists).where(sql_query, query: "%#{params[:query]}%")
+  else
+    @movies = Movie.all #Movie.page params[:page]
+  end
     
     # @lists = List.all
   end
