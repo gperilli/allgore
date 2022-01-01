@@ -26,12 +26,12 @@ puts 'databse is clean'
 
 puts 'Creating horror movies'
 waiting_dots
-if seed_from_tmdb == false
+if seed_from_tmdb == true
   # Seed movies from TMDB api
   # tmdb has about 704,457 movies
   puts 'Seeding from TMDB'
   waiting_dots
-  new_movie_index = 2668
+  new_movie_index = 3200
   horror_movies_n = 1
   movie_titles_array = []
   seed_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, 61)
