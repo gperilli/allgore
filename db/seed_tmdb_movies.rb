@@ -82,7 +82,6 @@ def seed_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, n)
     horror_movie_hash = horror_movie_hash_tmdbindex_and_titlesarray[0]
     new_movie_index = horror_movie_hash_tmdbindex_and_titlesarray[1]
     movie_titles_array = horror_movie_hash_tmdbindex_and_titlesarray[2]
-
     puts "TMDB index: #{new_movie_index} Horror movie number: #{horror_movies_n}. Title: #{horror_movie_hash["original_title"]}  Instance:"
     new_movie_index += 1
     horror_movies_n += 1
