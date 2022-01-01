@@ -15,7 +15,7 @@ require_relative 'waiting_dots'
 require_relative 'seed_tmdb_movies'
 require_relative 'create_movie_lists'
 
-seed_from_tmdb = false
+seed_from_tmdb = true
 
 puts 'cleaning up database'
 waiting_dots
@@ -26,7 +26,7 @@ puts 'databse is clean'
 
 puts 'Creating horror movies'
 waiting_dots
-if seed_from_tmdb == true
+if seed_from_tmdb == false
   # Seed movies from TMDB api
   # tmdb has about 704,457 movies
   puts 'Seeding from TMDB'
@@ -42,21 +42,16 @@ if seed_from_tmdb == true
   waiting_dots
   CSV.open(csv_file, "wb") do |csv|
     Movie.all.each do |movie_data|
-      csv << [movie_data.tmdb_key, movie_data.title, movie_data.poster_url, movie_data.backdrop_image_url, movie_data.overview, movie_data.release_date, movie_data.runtime, movie_data.tagline, movie_data.rating]
+      csv << [movie_data.tmdb_key, movie_data.title, movie_data.poster_url, movie_data.backdrop_image_url, movie_data.overview, movie_data.release_date, movie_data.runtime, movie_data.tagline, movie_data.rating, movie_data.language]
     end
   end
 else
   # 
   puts 'Seeding from local CSV file'
   waiting_dots
-  arr_of_rows = CSV.read("seed_list_curated.csv")
+  arr_of_rows = CSV.read("seed_list.csv")
 
-  arr_of_rows.each do |row|
-    # url = "https://api.themoviedb.org/3/movie/#{row[0]}?api_key=a7cc25d497366000cfcd64f2c419f406"
-    # movie_hash_and_src = [JSON.parse(URI.open(url).read), url]
-    # movie_hash = movie_hash_and_src[0]
-    # language = movie_hash["original_language"]
-    
+  arr_of_rows.each do |row|    
     movie = Movie.create!(
         poster_url: row[2],
         backdrop_image_url: row[3],
