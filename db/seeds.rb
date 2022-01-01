@@ -26,7 +26,7 @@ puts 'databse is clean'
 
 puts 'Creating horror movies'
 waiting_dots
-if seed_from_tmdb == true
+if seed_from_tmdb == false
   # Seed movies from TMDB api
   # tmdb has about 704,457 movies
   puts 'Seeding from TMDB'
