@@ -66,6 +66,7 @@ def seed_unique_horror_movies(new_movie_index, movie_titles_array)
       tmdb_key: horror_movie_hash["id"],
       runtime: horror_movie_hash["runtime"],
       release_date: horror_movie_hash["release_date"],
+      language: horror_movie_hash["original_language"]
     )
     horror_movie_hash_index_and_titlesarray = [horror_movie_hash, new_movie_index, movie_titles_array]
   else
