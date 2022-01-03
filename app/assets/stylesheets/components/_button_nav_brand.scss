@@ -9,10 +9,11 @@
   overflow: hidden;
   z-index: 200;
   position: relative;
+  flex-grow: 0;
+  width: 150px;
 }
 
 .ag-button-brand-icon {
-  width: 90%;
   height: 90%;
   fill: #fff;
   font-size: calc(#{$ui-nav-icons-size} - 5px);

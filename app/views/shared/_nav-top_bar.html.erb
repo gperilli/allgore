@@ -7,8 +7,7 @@
       <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;" %>
       <!-- Allgore search bar -->
       <% if params[:controller] != "pages" && params[:action] != "home" %>
-      <%= render 'shared/searchbar', justify: "start" %>
-      <% else %>
+        <%= render 'shared/searchbar', justify: "start" %>
       <% end %>
     </div>
   </div>
