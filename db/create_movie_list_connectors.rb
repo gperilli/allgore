@@ -10,22 +10,25 @@ def create_movie_list_connectors
     puts "Looking through csv file for movie subgenres to hookup"
     arr_of_rows = CSV.read("seed_list_curated.csv")
     arr_of_rows.each do |row|
-        if row[10] != nil
-            movie_to_add_to_list = Movie.find_by title: row[1]
-            list_to_add_to_movie = List.find_by name: row[10]
-            # Destroying the no category list connector
-            movie_to_add_to_list.movielistconnectors.all.each do |movielistconnector|
-                if List.find(movielistconnector.list_id).name == "No Category"
-                movielistconnector.destroy
+        [10, 11, 12].each do |row_column|
+            if row[row_column] != nil
+                movie_to_add_to_list = Movie.find_by title: row[1]
+                list_to_add_to_movie = List.find_by name: row[row_column]
+                # Destroying the no category list connector
+                movie_to_add_to_list.movielistconnectors.all.each do |movielistconnector|
+                    if List.find(movielistconnector.list_id).name == "No Category"
+                    movielistconnector.destroy
+                    end
                 end
+                # Adding movie-list connector
+                movielistconnector = Movielistconnector.create!(
+                    movie_id: movie_to_add_to_list.id,
+                    list_id: list_to_add_to_movie.id,
+                )
+                puts "#{movie_to_add_to_list.title}: #{list_to_add_to_movie.name}" 
             end
-            # Adding movie-list connector
-            movielistconnector = Movielistconnector.create!(
-                movie_id: movie_to_add_to_list.id,
-                list_id: list_to_add_to_movie.id,
-            )
-            puts "#{movie_to_add_to_list.title}: #{list_to_add_to_movie.name}" 
         end
+        
     end
 end
 

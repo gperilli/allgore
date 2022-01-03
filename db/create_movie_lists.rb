@@ -13,13 +13,19 @@ def create_movie_lists
         ["Zombies", "I'm hungry."], 
         ["Aliens", "Take me to your leader"], 
         ["Frankenstein Monsters", "Daddy!"], 
+        ["Monsters", "Grrrr!"],
         ["Ghosts", "Boo!"], 
         ["Technology", "Beep, beep"], 
         ["Werewolves", "Aoooooooooo"], 
-        ["Evil Men", "Please come in"], 
+        ["Serial Killers", "Please come in"], 
         ["Slasher", "Swish"], 
-        ["Animals", "Fresh meat"], 
-        ["Comedy", "Ha ha"]
+        ["Animals", "Fresh meat"],
+        ["Psychological", "It's all in your head."], 
+        ["Comedy", "Ha ha"],
+        ["Saw Series", "Live or die. Make your choice."],
+        ["Alien Series", "In space no one can hear you scream."],
+        ["Evil Dead Series", "The Ultimate Experience In Grueling Terror"],
+        ["Last Summer Series", "If you're going to bury the truth, make sure it stays buried."]
     ]
 
     subgenres.each do |subgenre|
