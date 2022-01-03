@@ -35,12 +35,16 @@ body {
 }
 
 .wireframe {
-  outline: 1px solid #808080;
+  outline: 0px solid #808080;
 }
 
 /*@import "pages/movies";*/
 .background-color {
   background-color: $background-color;
+}
+
+.allgore-red-background {
+  background-color: $allgore-red !important;
 }
 
 .background-transparent {
@@ -158,7 +162,7 @@ h3.section-title {
   opacity: 1;
 }
 .footer .fa-heart {
-  color: $ui-color-highlight;
+  color: $allgore-red;
 }
 
 

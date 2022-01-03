@@ -45,6 +45,7 @@
   width: 100%;
   border-radius: 25px;
   border-style:solid;
+  border-color: $allgore-red;
   margin-right: calc(#{$ui-nav-icons-size} * -1);
   padding-top: -5px;
   padding-left: 10px;
@@ -64,7 +65,7 @@
   width: 52px;
   border: 0px;
   color: #fff;
-  background-color: $ui-color-highlight;
+  background-color: $allgore-red;
 }
 
 
