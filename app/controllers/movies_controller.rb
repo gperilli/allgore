@@ -1,26 +1,34 @@
 class MoviesController < ApplicationController
 
   def index
-  @carousel_movie_titles = [] 
-  @carousel_movie_titles[0] = "Dracula" 
-  @carousel_movie_titles[1] = "Alien" 
-  @carousel_movie_titles[2] = "Saw II" 
-  @carousel_movie_titles[3] = "A Nightmare on Elm Street" 
-  @carousel_movie_titles[4] = "Psycho" 
-  @carousel_movie_titles[5] = "The Ring" 
+    @carousel_movie_titles = [] 
+    @carousel_movie_titles[0] = "Dracula" 
+    @carousel_movie_titles[1] = "Alien" 
+    @carousel_movie_titles[2] = "Saw II" 
+    @carousel_movie_titles[3] = "A Nightmare on Elm Street" 
+    @carousel_movie_titles[4] = "Psycho" 
+    @carousel_movie_titles[5] = "The Ring" 
 
-  if params[:query].present?
-    sql_query = " \
-      movies.title ILIKE :query \
-      OR movies.release_date ILIKE :query \
-      OR lists.name ILIKE :query \
-    "
-    @movies = Movie.joins(:lists).where(sql_query, query: "%#{params[:query]}%")
-  else
-    @movies = Movie.all #Movie.page params[:page]
-  end
+    @last_page = (Movie.all.length.to_f / 30).ceil
     
+
+    if params[:query].present?
+      sql_query = " \
+        movies.title ILIKE :query \
+        OR movies.release_date ILIKE :query \
+        OR lists.name ILIKE :query \
+      "
+      @movies_total = Movie.joins(:lists).where(sql_query, query: "%#{params[:query]}%").count
+      @movies = Movie.joins(:lists).where(sql_query, query: "%#{params[:query]}%").page params[:page]
+
+    else
+      @movies_total = Movie.all.count
+      @movies = Movie.page params[:page] #Movie.page params[:page]
+    end
     # @lists = List.all
+
+
+
   end
 
   def show

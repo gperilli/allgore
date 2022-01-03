@@ -166,7 +166,13 @@ h3.section-title {
 }
 
 
-
+.ag-pagination-item {
+  background-color: $allgore-red;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding:2px;
+}
 
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */

@@ -1,6 +1,6 @@
 
 <!-- Banner Carousel -->
-<%= render partial: 'shared/banner_carousel' if params[:query].present? == false %>
+<%= render partial: 'shared/banner_carousel' if params[:query].present? == false && params[:page].to_i < 2 %>
 <% %>
 <!-- Black Spacer -->
 <%= render "shared/section_spacer", background_color: "background-color"  %>
@@ -11,7 +11,7 @@
 <!-- movie list title section -->
 <div class="ag-wrapper wireframe">
   <div class="ag-container wireframe">
-    <h3 class="wireframe section-title white-text" style=""><%= @movies.count %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
+    <h3 class="wireframe section-title white-text" style=""><%= @movies_total %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
   </div>
 </div>
 <!-- Movies Index -->
@@ -51,7 +51,7 @@
             <span class="movie-card__meta-data" style="float: right; display: <%= List.find(movie.movielistconnectors[0].list_id).name != "No Category" ? "block" : "none"  %>">
               <% movie_lists_for_this_movie.each do |movie_list_name| %>
                 <% list_hash = List.find_by name: movie_list_name %>
-                #<%= link_to movie_list_name, list_path(list_hash.id), class: "movie-card__meta-data-link" %>&nbsp;
+                <%= link_to "##{movie_list_name}", list_path(list_hash.id), class: "movie-card__meta-data-link" %>&nbsp;
               <% end %>
             </span>
           </div>
@@ -63,6 +63,11 @@
 <!-- Pagintation -->
 <div class="ag-wrapper wireframe ">
   <div class="ag-container wireframe" style="align-items: center; justify-content: center; flex-direction: row; width: 100%; padding-top: 20px;">
-    <%#= paginate @movies, class: "" %>
+    <div class="pagination">
+      <%= paginate @movies, class: "" %>
+    </div>
   </div>
 </div>
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-color"  %>
+<% %>
