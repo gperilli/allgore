@@ -9,7 +9,7 @@ class MoviesController < ApplicationController
     @carousel_movie_titles[4] = "Psycho" 
     @carousel_movie_titles[5] = "The Ring" 
 
-    @last_page = (Movie.all.length.to_f / 30).ceil
+    @last_page = (Movie.all.length.to_f / 60).ceil
     
 
     if params[:query].present?

@@ -6,8 +6,8 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="last">
-  <%= link_to "movies?page=1" do %>
+<span class="last ag-pagination-item">
+  <%= link_to "movies?page=1", class: "ag-pagination-anchor" do %>
     <i class="fas fa-angle-double-left"></i>
   <% end %>
 </span>

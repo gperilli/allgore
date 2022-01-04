@@ -165,15 +165,65 @@ h3.section-title {
   color: $allgore-red;
 }
 
-
-.ag-pagination-item {
-  background-color: $allgore-red;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 5px;
-  padding:2px;
+.ag-pagination-container {
+  margin-top: 20px;
+  position: relative;  
+  width: calc(100vw - 40px);
+  display: flex;
+  justify-content: center;
 }
 
+.ag-pagination-item {
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 40px;
+  width: 40px;  
+}
+
+.current {
+  background-color: $allgore-red;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2px;
+  padding-bottom: 2px;
+}
+
+.gap {
+  color:$allgore-red; 
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+.ag-pagination-anchor {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  background-color: #CB4335;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  font-weight: bold;
+  padding-right: 2px;
+  padding-bottom: 2px;
+}
+
+.ag-pagination-anchor:hover {
+  background-color: $allgore-red;
+  text-decoration: none;
+  color: white;
+}
+
+.ag-pagination-anchor:active {
+  background-color: $allgore-red !important;
+}
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
 /* 769px — 1024px: Small screens, laptops. */

@@ -6,10 +6,10 @@
     remote:        data-remote
     paginator:     the paginator that renders the pagination tags inside
 -%>
+
 <%= paginator.render do -%>
-  <nav class="pagination" role="navigation" aria-label="pager">
+  <nav class="pagination ag-pagination-container" role="navigation" aria-label="pager">
     <%= first_page_tag unless current_page.first? %>
-    
     <% each_page do |page| -%>
       <% if page.display_tag? -%>
         <%= page_tag page %>
@@ -18,7 +18,6 @@
       <% end -%>
     <% end -%>
     <% unless current_page.out_of_range? %>
-      
       <%= last_page_tag unless current_page.last? %>
     <% end %>
   </nav>
