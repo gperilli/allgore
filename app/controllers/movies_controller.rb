@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
   def index
     @carousel_movie_titles = [] 
-    @carousel_movie_titles[0] = "Dracula" 
+    @carousel_movie_titles[0] = "The Lost Boys" 
     @carousel_movie_titles[1] = "Alien" 
     @carousel_movie_titles[2] = "Saw II" 
     @carousel_movie_titles[3] = "A Nightmare on Elm Street" 
@@ -25,14 +25,11 @@ class MoviesController < ApplicationController
       @movies_total = Movie.all.count
       @movies = Movie.page params[:page] #Movie.page params[:page]
     end
-    # @lists = List.all
-
-
 
   end
 
   def show
-  @movie = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   private
