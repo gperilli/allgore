@@ -23,7 +23,7 @@
               <% if movie.poster_url == "https://image.tmdb.org/t/p/w500/" %>
                 <img src="<%= image_path('noposter.png') %>">
               <% else %>
-                <svg xmlns="http://www.w3.org/2000/svg" class="movie-card__poster-proportion wireframe" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" fill="transparent" style="" viewBox="0 0 500 750"></svg>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="movie-card__poster-proportion wireframe" preserveAspectRatio="xMidYMid meet" width="100%" height="100%" fill="transparent" style="" viewBox="0 0 500 750"></svg> -->
                 <img src="<%= movie.poster_url %>"class="movie-card__poster-image" style="">
               <% end %>
             </div>
