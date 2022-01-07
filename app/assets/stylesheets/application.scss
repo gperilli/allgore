@@ -143,6 +143,26 @@ h3.section-title {
   text-shadow: 1px 1px 3px rgba(0,0,0,2);
 }
 
+.ag-title__svg {
+  height: 90%;
+  fill: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 0px;
+  position: relative;
+  left: 5%;
+  top: 5%;
+  vertical-align: bottom;
+  z-index: 101;
+  overflow: visible;
+  vertical-align: bottom; 
+  left: 0px;
+}
+
+.ag-title__svgpath {
+  fill: $allgore-red;
+  filter: drop-shadow(10px 0 5px #000);
+}
+
 /* Footer */
 .footer-height {
   height: $ui-footer-height;
