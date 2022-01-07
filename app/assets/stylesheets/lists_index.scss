@@ -3,23 +3,22 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     grid-row-gap: 50px;
-  }
+}
 
-  .list-card__backdrop-image {
+.list-card__backdrop-image {
     position: relative;
     top: 0px;
     left: 0px;
     width: 100%;
-    
-    box-shadow: -1px 1px 16px -2px rgba(255,255,255,.6);
-  }
+    box-shadow: -1px 1px 16px -2px rgba(255, 255, 255, 0.6);
+}
 
 @media (max-width: 880px) {
     .lists-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 16px;
-        }
+    }
 }
 
 @media (max-width: 768px) {
@@ -30,7 +29,7 @@
     }
 }
 
-@media(max-width: 480px) {
+@media (max-width: 480px) {
     .lists-container {
         display: grid;
         grid-template-columns: 1fr;

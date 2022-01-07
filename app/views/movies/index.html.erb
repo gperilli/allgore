@@ -31,17 +31,17 @@
               <% end %>
             </div>
           <% end %>
-          <div class="wireframe" style="position: relative; width: 100%; text-overflow: ellipsis;">
+          <div class="movie-card__title-container wireframe" style="">
             <%= link_to movie_path(movie.id), style: 'position: relative; display: flex; text-decoration: none; float: left; width: fit-content;', class: '' do %>
               <!-- "https://www.themoviedb.org/movie/#{movie.tmdb_key}" -->
-              <span class="movie-card__title wireframe", style="">
+              <span class="movie-card__title wireframe">
                 <%= movie.title  %>
               </span>
             <% end %>
           </div>
           <!-- Release Date and Runtime -->
           <div class="movie-card__meta-data-container wireframe" style="">
-            <span class="movie-card__meta-data" style=" "><%= movie.release_date[0..3] %>&nbsp; &#8226; &nbsp;<%= movie.runtime %> min</span>
+            <span class="movie-card__meta-data"><%= movie.release_date[0..3] %>&nbsp; &#8226; &nbsp;<%= movie.runtime %> min</span>
           </div>
           <!-- Movie lists/horror subgenres -->
           <div class="movie-card__meta-data-container wireframe" style="">
