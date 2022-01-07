@@ -5,8 +5,9 @@ class ListsController < ApplicationController
       @list_card_covers[:zombies] = "Dawn of the Dead" 
       @list_card_covers[:animals] = "Jaws"
       @list_card_covers[:aliens] = "AVP: Alien vs. Predator"
-
-      @lists = List.all
+      
+      # Putting No category list at end
+      @lists = List.all[1..List.count] << List.first
     end
 
     def show

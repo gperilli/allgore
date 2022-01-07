@@ -7,7 +7,7 @@
 <!-- movie list title section -->
 <div class="ag-wrapper wireframe">
   <div class="ag-container wireframe">
-    <h3 class="wireframe section-title white-text" style=""><%= @list.movies.count %> movies in <span style="font-family: horrorFont;"><%= @list.name %></span></h3>
+    <h3 class="wireframe section-title white-text" style=""><span style="font-family: horrorFont;"><%= @list.name %></span></h3>
   </div>
 </div>
 <!-- Movies Index -->
@@ -26,7 +26,7 @@
               <% end %>
             </div>
           <% end %>
-          <div class="wireframe" style="position: relative; width: 100%; text-overflow: ellipsis;">
+          <div class="movie-card__title-container wireframe" style="">
             <%= link_to movie_path(movie.id), style: 'position: relative; display: flex; text-decoration: none; float: left; width: fit-content;', class: '' do %>
               <!-- "https://www.themoviedb.org/movie/#{movie.tmdb_key}" -->
               <span class="movie-card__title wireframe", style="">
