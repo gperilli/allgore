@@ -3,15 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "config/colors";
 
-.card {
-  border: 0px;
-}
-
 .movies-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  grid-row-gap: 50px;
+  grid-row-gap: 60px;
 }
 
 .movie-card__poster-proportion {
@@ -68,6 +64,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 16px;
+    grid-row-gap: 40px;
   }
 }
 
@@ -76,6 +73,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
+    grid-row-gap: 40px;
   }
 }
 
