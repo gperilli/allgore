@@ -11,7 +11,8 @@
 <!-- movie list title section -->
 <div class="ag-wrapper wireframe">
   <div class="ag-container wireframe">
-    <h3 class="wireframe section-title white-text" style=""><%= @movies_total %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
+    <% pagen = params[:page].to_i == 0 ? 1 : params[:page].to_i %>
+    <h3 class="wireframe section-title white-text" style=""><%= (((pagen - 1) * 60) + 1) %> to <%= (pagen * 60) %> of <%= @movies_total %> movies on <span style="font-family: horrorFont;">All Gore</span></h3>
   </div>
 </div>
 <!-- Movies Index -->
@@ -24,6 +25,7 @@
             <div class="card wireframe">
               <% if movie.poster_url == "https://image.tmdb.org/t/p/w500/" %>
                 <%# movie_poster_img =  %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="movie-card__poster-proportion wireframe" preserveAspectRatio="xMidYMid slice" width="100%" fill="transparent" style="" viewBox="0 0 500 750"></svg>
                 <img src="<%= image_path('noposter.png') %>" class="movie-card__poster-image">
               <% else %>
                 <svg xmlns="http://www.w3.org/2000/svg" class="movie-card__poster-proportion wireframe" preserveAspectRatio="xMidYMid slice" width="100%" fill="transparent" style="" viewBox="0 0 500 750"></svg>

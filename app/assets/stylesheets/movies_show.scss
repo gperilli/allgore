@@ -1,3 +1,5 @@
+@import "config/colors";
+
 .movie-show__landing-wrapper-background {
   position: absolute;
   top: 0px;
@@ -80,17 +82,18 @@
 }
 
 .movie-show__movie-lists {
-  background-color: #808080;
+  background-color: $allgore-red;
   padding-left: 3px;
   padding-right: 3px;
   border-radius: 5px;
   font-size: 16px;
-  float: left;
   float: right;
+  margin-left: 10px;
 }
 
 .movie-show__list-link {
   color: #fff;
+  
 }
 
 .movie-show__list-link:hover {
