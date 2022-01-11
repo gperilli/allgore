@@ -2,11 +2,11 @@ class MoviesController < ApplicationController
 
   def index
     @carousel_movie_titles = [] 
-    @carousel_movie_titles[0] = "The Lost Boys" 
+    @carousel_movie_titles[0] = "The Shining" 
     @carousel_movie_titles[1] = "Alien" 
     @carousel_movie_titles[2] = "Saw II" 
     @carousel_movie_titles[3] = "A Nightmare on Elm Street" 
-    @carousel_movie_titles[4] = "Psycho" 
+    @carousel_movie_titles[4] = "American Psycho" 
     @carousel_movie_titles[5] = "The Ring" 
 
     @last_page = (Movie.all.length.to_f / 60).ceil
