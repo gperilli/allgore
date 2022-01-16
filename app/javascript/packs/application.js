@@ -18,14 +18,37 @@ require("channels")
 
 // app/javascript/packs/application.js
 //import 'bootstrap';
+import Flickity from 'flickity';
+localStorage.setItem("carouselState", 0);
+//console.log(`Carousel State: ${localStorage.getItem("carouselState")}`);
 
-
-document.addEventListener('turbolinks:load', () => {
-  
+window.addEventListener( 'load', function() {
+  console.log("Page load with carouselLoader");
+  carouselLoader();
 });
 
+document.addEventListener('turbolinks:load', () => {
+    console.log("Turbolinks Load.");
+    console.log(`Carousel State: ${localStorage.getItem("carouselState")}`);
+    if (localStorage.getItem("carouselState") == 1) {
+      localStorage.setItem("carouselState", 0);
+      location.reload();
+    }
+});
 
-
+function carouselLoader() {
+  localStorage.setItem("carouselState", 1);
+  var elem = document.querySelector('.main-carousel');
+    if (elem != null) {
+        var flkty = new Flickity(elem, {
+          // options
+          fullscreen: true,
+          wrapAround: true,
+          prevNextButtons: false,
+          autoPlay: 10000,
+        });      
+    } 
+}
 
 
 // Opacity fade for top nav search bar background

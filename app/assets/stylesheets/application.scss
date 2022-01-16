@@ -9,6 +9,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
@@ -29,6 +30,8 @@
 @import "movies_index";
 @import "movies_show";
 @import "lists_index";
+
+@import "components/flickity";
 
 body {
   font-family: Helvetica, sans-serif;
