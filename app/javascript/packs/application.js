@@ -21,15 +21,12 @@ require("channels")
 
 
 document.addEventListener('turbolinks:load', () => {
-  var elem = document.querySelector('.main-carousel');
-  var flkty = new Flickity(elem, {
-    // options
-    fullscreen: true,
-    wrapAround: true,
-    prevNextButtons: false,
-    autoPlay: 10000,
-  });
+  
 });
+
+
+
+
 
 // Opacity fade for top nav search bar background
 window.addEventListener('scroll', function () {

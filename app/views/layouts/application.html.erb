@@ -27,6 +27,7 @@
     <meta name="twitter:image" content="https://gperilli.dev/images/ogimages/allgore-og-share-image2.png" />
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
   </head>
   <body class="background-color">
     <% if params[:controller] != "pages" && params[:action] != "home" %>
@@ -35,7 +36,7 @@
     <%= yield %>
     <!-- Footer -->
     <%= render 'shared/footer'  %>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    
     <script></script>
   </body>
 </html>
