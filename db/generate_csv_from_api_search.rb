@@ -8,10 +8,10 @@ def generate_csv_from_api_search
   # tmdb has about 704,457 movies
   puts 'Seeding from TMDB into csv file'
   waiting_dots
-  new_movie_index = 5843
+  new_movie_index = 8644
   horror_movies_n = 1
   movie_titles_array = []
-  movie_hash_for_csvarray = get_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, 61)
+  movie_hash_for_csvarray = get_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, 121)
 
   # Writing Movie Seeds to CSV
   csv_file = "db/seed/#{Time.now.strftime("%Y-%m-%d-%H-%M")}_api_import_list_movies.csv"
