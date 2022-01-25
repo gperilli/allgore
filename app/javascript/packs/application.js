@@ -20,13 +20,14 @@ require("channels")
 //import 'bootstrap';
 import Flickity from 'flickity';
 localStorage.setItem("carouselState", 0);
-//console.log(`Carousel State: ${localStorage.getItem("carouselState")}`);
 
+// Window page load event listener only fires for complete page load or refresh
 window.addEventListener( 'load', function() {
   console.log("Page load with carouselLoader");
   carouselLoader();
 });
 
+// Turbolink event listener fires for every page load including a back button click
 document.addEventListener('turbolinks:load', () => {
     console.log("Turbolinks Load.");
     console.log(`Carousel State: ${localStorage.getItem("carouselState")}`);

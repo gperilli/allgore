@@ -8,7 +8,7 @@ def create_movie_list_connectors
         )
     end
     puts "Looking through csv file for movie subgenres to hookup"
-    arr_of_rows = CSV.read("seed_list_curated.csv")
+    arr_of_rows = CSV.read("db/seed/seed_list_curated.csv")
     arr_of_rows.each do |row|
         [10, 11, 12].each do |row_column|
             if row[row_column] != nil
@@ -28,7 +28,6 @@ def create_movie_list_connectors
                 puts "#{movie_to_add_to_list.title}: #{list_to_add_to_movie.name}" 
             end
         end
-        
     end
 end
 

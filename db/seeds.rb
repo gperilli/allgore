@@ -6,17 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'open-uri'
-require 'json'
-require "nokogiri"
 require 'csv'
 
 require_relative 'waiting_dots'
-require_relative 'seed_tmdb_movies'
-require_relative 'create_movie_lists'
-require_relative 'create_movie_list_connectors'
+require_relative 'seed/create_movie_lists'
+require_relative 'seed/create_movie_list_connectors'
 
-seed_from_tmdb = false
 
 puts 'cleaning up database'
 waiting_dots
@@ -27,59 +22,36 @@ puts 'database is clean'
 
 puts 'Starting the seed'
 waiting_dots
-if seed_from_tmdb == true
-  # Seed movies from TMDB api
-  # tmdb has about 704,457 movies
-  puts 'Seeding from TMDB into csv file'
-  waiting_dots
-  new_movie_index = 4238
-  horror_movies_n = 1
-  movie_titles_array = []
-  seed_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, 61)
 
-  # Writing Movie Seeds to CSV
-  csv_file = "seed_list_movies.csv"
-  puts "Putting movie seeds into csv file"
-  waiting_dots
-  CSV.open(csv_file, "wb") do |csv|
-    Movie.all.each do |movie_data|
-      csv << [movie_data.tmdb_key, movie_data.title, movie_data.poster_url, movie_data.backdrop_image_url, movie_data.overview, movie_data.release_date, movie_data.runtime, movie_data.tagline, movie_data.rating, movie_data.language, "No Category"]
-    end
-  end
-
-  # Creating 'No Category' Movie list for all movies, then horror sub-genre lists
-  create_movie_lists
-else
-  # 
-  puts 'Seeding movies from local CSV file'
-  waiting_dots
-  arr_of_rows = CSV.read("seed_list_curated.csv")
-  arr_of_rows.each do |row|    
-    movie = Movie.create!(
-        poster_url: row[2],
-        backdrop_image_url: row[3],
-        title: row[1],
-        rating: row[8],
-        overview: row[4],
-        tagline: row[7],
-        tmdb_key: row[0],
-        runtime: row[6],
-        release_date: row[5],
-        language: row[9],
-    )
-    puts "TMDB index: #{movie.tmdb_key}. Title: #{movie.title} #{movie.release_date} Language: #{movie.language}"
-  end
-
-  puts 'Creating subgenre lists'
-  waiting_dots
-  create_movie_lists
-  
-  puts 'Connecting movies to lists through CSV data'
-  waiting_dots
-  create_movie_list_connectors
-  puts 'CSV file movie data seeded'
-  
+# 
+puts 'Seeding movies from local CSV file'
+waiting_dots
+arr_of_rows = CSV.read("db/seed/seed_list_curated.csv")
+arr_of_rows.each do |row|    
+  movie = Movie.create!(
+      poster_url: row[2],
+      backdrop_image_url: row[3],
+      title: row[1],
+      rating: row[8],
+      overview: row[4],
+      tagline: row[7],
+      tmdb_key: row[0],
+      runtime: row[6],
+      release_date: row[5],
+      language: row[9],
+  )
+  puts "TMDB index: #{movie.tmdb_key}. Title: #{movie.title} #{movie.release_date} Language: #{movie.language}"
 end
+
+puts 'Creating subgenre lists'
+waiting_dots
+create_movie_lists
+
+puts 'Connecting movies to lists through CSV data'
+waiting_dots
+create_movie_list_connectors
+puts 'CSV file movie data seeded'
+  
 
 
 

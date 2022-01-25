@@ -1,5 +1,5 @@
-
-
+require 'open-uri'
+require 'json'
 
 def get_movie_hash(new_movie_index)
   url = "https://api.themoviedb.org/3/movie/#{new_movie_index}?api_key=a7cc25d497366000cfcd64f2c419f406"
@@ -42,7 +42,7 @@ def get_horror_movie_hash(new_movie_index)
   end
 end
 
-def seed_unique_horror_movies(new_movie_index, movie_titles_array)
+def get_unique_horror_movies(new_movie_index, movie_titles_array)
   horror_movie_hash_and_index = get_horror_movie_hash(new_movie_index)
   horror_movie_hash = horror_movie_hash_and_index[0]
   new_movie_index = horror_movie_hash_and_index[1]
@@ -56,7 +56,7 @@ def seed_unique_horror_movies(new_movie_index, movie_titles_array)
     poster_path = horror_movie_hash["poster_path"] == "" ? "poster" : horror_movie_hash["poster_path"]
     backdrop_image_url = "https://image.tmdb.org/t/p/original/#{horror_movie_hash["backdrop_path"]}"
     poster_tmdb_url = "https://image.tmdb.org/t/p/w500/#{horror_movie_hash["poster_path"]}"
-    movie = Movie.create!(
+    movie_hash_for_csv = {
       poster_url: poster_tmdb_url,
       backdrop_image_url: backdrop_image_url,
       title: horror_movie_hash["original_title"],
@@ -67,24 +67,27 @@ def seed_unique_horror_movies(new_movie_index, movie_titles_array)
       runtime: horror_movie_hash["runtime"],
       release_date: horror_movie_hash["release_date"],
       language: horror_movie_hash["original_language"]
-    )
-    horror_movie_hash_index_and_titlesarray = [horror_movie_hash, new_movie_index, movie_titles_array]
+    }
+    horror_movie_hash_index_and_titlesarray = [movie_hash_for_csv, horror_movie_hash, new_movie_index, movie_titles_array]
   else
     new_movie_index += 1
     puts "duplicate"
-    seed_unique_horror_movies(new_movie_index, movie_titles_array)
+    get_unique_horror_movies(new_movie_index, movie_titles_array)
   end
 end
 
 
-def seed_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, n)
-    while horror_movies_n < n do
-    horror_movie_hash_tmdbindex_and_titlesarray = seed_unique_horror_movies(new_movie_index, movie_titles_array)
-    horror_movie_hash = horror_movie_hash_tmdbindex_and_titlesarray[0]
-    new_movie_index = horror_movie_hash_tmdbindex_and_titlesarray[1]
-    movie_titles_array = horror_movie_hash_tmdbindex_and_titlesarray[2]
-    puts "TMDB index: #{new_movie_index} Horror movie number: #{horror_movies_n}. Title: #{horror_movie_hash["original_title"]}  Instance:"
-    new_movie_index += 1
-    horror_movies_n += 1
+def get_tmdb_movies(new_movie_index, horror_movies_n, movie_titles_array, n)
+  movie_hash_for_csvarray = []  
+  while horror_movies_n < n do
+      horror_movie_hash_tmdbindex_and_titlesarray = get_unique_horror_movies(new_movie_index, movie_titles_array)
+      horror_movie_hash = horror_movie_hash_tmdbindex_and_titlesarray[1]
+      new_movie_index = horror_movie_hash_tmdbindex_and_titlesarray[2]
+      movie_titles_array = horror_movie_hash_tmdbindex_and_titlesarray[3]
+      puts "TMDB index: #{new_movie_index} Horror movie number: #{horror_movies_n}. Title: #{horror_movie_hash["original_title"]}  Instance:"
+      movie_hash_for_csvarray << horror_movie_hash_tmdbindex_and_titlesarray[0]
+      new_movie_index += 1
+      horror_movies_n += 1
     end
+    return movie_hash_for_csvarray
 end
