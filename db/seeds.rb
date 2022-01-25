@@ -15,9 +15,9 @@ require_relative 'seed/create_movie_list_connectors'
 
 puts 'cleaning up database'
 waiting_dots
-Movie.destroy_all
-List.destroy_all
 Movielistconnector.destroy_all
+List.destroy_all
+Movie.destroy_all
 puts 'database is clean'
 
 puts 'Starting the seed'
