@@ -1,9 +1,8 @@
-# README
+# allgore
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A horror movie database, and movie list site. Allgore is a website dedictaed to horror movies with hundreds of movies seeded from TMDB.
 
-Things you may want to cover:
+## Technical Details
 
 * Ruby version
 
@@ -21,4 +20,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
