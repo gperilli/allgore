@@ -1,0 +1,15 @@
+<div class="ag-wrapper wireframe" >
+  <div class="fixed-top top-bar wireframe black_background">
+    <!-- background opacity shifting rectangle -->
+    <div id="test" class="navbar-background" style=""></div>
+    <div class="ag-container wireframe" style="">
+      <!-- brand home - hidden from top nav on small screens -->
+      <%= render partial: 'shared/brand_logo_button', style: "z-index: 200;" %>
+      <!-- Allgore search bar -->
+      <% if params[:controller] != "pages" && params[:action] != "home" %>
+        <%= render 'shared/searchbar', justify: "start" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- -->

@@ -1,0 +1,97 @@
+@import "config/colors";
+@import "config/allgore_variables";
+
+.lists-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+    grid-row-gap: 50px;
+    overflow: visible;
+}
+
+.subgenre-card-link {
+    opacity: 1;
+}
+
+.subgenre-card-link:hover h4.subgenre-title{
+    color: $allgore-red;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 2);
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.subgenre-card-link:hover .list-card__backdrop-image{
+    opacity: 0.5;
+}
+
+.subgenre-card-link:hover h4.subgenre-title__number {
+    border-right: 1px solid $allgore-red;
+}
+
+.list-card__backdrop-image {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    box-shadow: -1px 1px 16px -2px rgba(255, 255, 255, 0.6);
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.subgenre-title-container {
+    position: absolute;
+    width: 100%;
+    float: left;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+h4.subgenre-title {
+    position: relative;
+    float: left;
+    font-family: $ag-main-font;
+    color: $allgore-main-color;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 2);
+    padding-top: 10px;
+    transition: 0.3s;
+}
+
+h4.subgenre-title__text {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+h4.subgenre-title__number {
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 1px solid #fff;
+    transition: 0.3s;
+}
+
+@media (max-width: 880px) {
+    .lists-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lists-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lists-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,40 @@
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-color"  %>
+<% %>
+<!-- Black Spacer -->
+<%= render "shared/section_spacer", background_color: "background-color"  %>
+<% %>
+<!-- movie list title section -->
+<div class="ag-wrapper wireframe">
+  <div class="ag-container wireframe">
+    <h3 class="wireframe section-title white-text" style="padding-bottom: 20px;"><%= @lists.count %> subgenre lists on <span style="font-family: horrorFont; ">All Gore</span></h3>
+  </div>
+</div>
+<!-- movie list cards -->
+<div class="ag-wrapper wireframe">
+  <div class="ag-container wireframe" style="overflow: visible;">
+    <div class="lists-container wireframe" style="width: 100%;">
+      <% @lists.each_with_index do |list, index| %>
+        <div class="card wireframe" style="width: 100%; background: transparent;">
+          <%= link_to list_path(list), class:'subgenre-card-link' do %>
+              <% if @list_card_covers.include?(list.name.downcase.to_sym) == true %>
+                <% list_with_desired_cover = list.movies.find_by title: @list_card_covers[list.name.downcase.to_sym] %> 
+                <% list_card_image_url = list_with_desired_cover.backdrop_image_url %>
+              <% else %>
+                <% list_card_image_url = list.movies[0].backdrop_image_url %>
+              <% end %>
+              <img src="<%= list_card_image_url %>"class="list-card__backdrop-image" style="">
+              <div class="subgenre-title-container wireframe" style="">
+                <h4 class="subgenre-title subgenre-title__number"><%= index + 1 %></h4>
+                <h4 class="subgenre-title subgenre-title__text wireframe"><%= list.name %></h4>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Black Spacer -->
+<%= render "shared/section_spacer" %>
+<% %>

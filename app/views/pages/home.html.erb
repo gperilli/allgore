@@ -1,0 +1,39 @@
+<!-- Background -->
+<div class="landing-wrapper-background home-background" style="">
+    <div class="ag-wrapper wireframe" style="position: relative;">
+        <div class="ag-container window-height-height-minus-footer-height wireframe" style="display: flex; position: relative; float: left; width: 100%;">
+            <!-- Home Content container -->
+            <div class="top-container-after-nav-bar window-height-minus-nav-and-footer-height wireframe" style="">
+                <div class="home-landing-container" style="">
+                    <!-- Allgore Landing Title -->
+                    <h1 class="home-landing__title" >
+                        <%= render "shared/all-gore-full-text", display_class: "" %>
+                    </h1>
+                    <!-- Allgore search bar -->
+                    <div class="home-landing__search-contaner" style="">
+                        <%= render 'shared/searchbar', justify: "center" %>
+                    </div>
+                    <!-- Allgore CTAs-->
+                    <div class="home_landing__ctas">
+                        <%= link_to movies_path do %>
+                            <span class="btn btn-danger mt-1 mr-2 banner__movie-link-button allgore-red-background" style="">
+                                <span style="display: -webkit-box; max-width: 100%; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
+                                    <span style="">Movies</span>
+                                    <span> &nbsp; <i class="fas fa-chevron-right"></i></span>
+                                </span>
+                            </span>
+                        <% end %>
+                        <%= link_to lists_path do %>
+                            <span class="btn btn-danger mt-1 banner__movie-link-button allgore-red-background">
+                                <span style="display: -webkit-box; max-width: 100%; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
+                                    <span style="">Lists</span>
+                                    <span> &nbsp; <i class="fas fa-chevron-right"></i></span>
+                                </span>
+                            </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

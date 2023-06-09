@@ -1,0 +1,28 @@
+.ag-top-nav-home-button-outer-container {
+  height: $ui-nav-icons-size;
+  z-index: 99;
+}
+
+.ag-top-nav-home-button-container {
+  height: $ui-nav-icons-size;
+  padding: 0px;
+  overflow: hidden;
+  z-index: 200;
+  position: relative;
+  flex-grow: 0;
+  width: 150px;
+  overflow: visible;
+}
+
+@media(max-width: 480px) {
+  .ag-top-nav-home-button-outer-container {
+    width: $ui-nav-icons-size;
+    height: $ui-nav-icons-size;
+  }
+  .ag-top-nav-home-button-container {
+    width: $ui-nav-icons-size;
+    height: $ui-nav-icons-size;
+    border-radius: 50%;
+    background: transparent;
+  }
+}

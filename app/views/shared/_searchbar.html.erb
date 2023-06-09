@@ -1,0 +1,16 @@
+ <!-- Allgore search bar -->
+<div class="wireframe searchbar-main" style="justify-content: <%= justify %>">
+  <%= form_tag movies_path, method: :get do %>
+    <div class="ag-search-bar-container wireframe" style="">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "ag-search-bar__bar ag-font-main",
+      placeholder: "movie, genre, year",
+      autocomplete: "off"
+      %>
+      <%= button_tag(type: "Search", class: "ag-search-bar__button") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>

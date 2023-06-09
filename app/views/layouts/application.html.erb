@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Gore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name=”description” content="Allgore. Horror in film.">
+    <!-- Favicon -->
+    <%= favicon_link_tag asset_path('allgore-logo.png') %>
+
+    <!-- OG Facebook -->
+    <meta property="og:url" content="http://allgore.herokuapp.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Allgore" />
+    <meta property="og:description" content="Allgore. Horror in film." />
+    <meta property="og:image" content="https://allgore.herokuapp.com/og-share-image2.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@flickr" />
+    <meta name="twitter:title" content="Allgore" />
+    <meta name="twitter:description" content="Allgore. Horror in film." />
+    <meta name="twitter:image" content="https://allgore.herokuapp.com/og-share-image2.png" />
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    
+  </head>
+  <body class="background-color">
+    <% if params[:controller] != "pages" && params[:action] != "home" %>
+      <%= render 'shared/nav-top_bar' %>
+    <% end %>
+    <%= yield %>
+    <!-- Footer -->
+    <%= render 'shared/footer'  %>
+  </body>
+
+
+</html>
